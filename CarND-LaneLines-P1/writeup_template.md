@@ -1,47 +1,30 @@
 #**Finding Lane Lines on the Road** 
 
-##Writeup Template
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
+##1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
----
+My pipeline consisted of 6 steps:
 
-**Finding Lane Lines on the Road**
+**1.converte the images to grayscale**
 
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
+**2.use Gaussian filter to Smooth images **
 
+**3.detect edges by canny**
 
-[//]: # (Image References)
+**4.remove edges out of laneline's region(becouse camera is installed in a fixed position on car)**
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+**5.get lines using Hough Transformation** 
 
----
-
-### Reflection
-
-###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
-
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
+**6.extrapolate the left and right laneline depend on the slope of lines, line in left lane has negtive slope while line in right lane has positive slope.then calculate the average of slopes and remove these which have bigger difference to the average.then fit a straight line on the points of lines,the get the vetecis of the left and right lane**
 
 
 ###2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
+my pipeline have constant parameters for image process, One potential shortcoming would be the pipeline will not work correctly if the car runs in different environment,such as the car run in dusk, or the car runs on the middle of two laneline.
 
-Another shortcoming could be ...
 
 
 ###3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+A possible improvement would be to we should have variable parameters for the pipeline which depends on the images proccessed.that is to say we should have a algorithm which can choose the right parameters.
