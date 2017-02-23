@@ -7,7 +7,7 @@ My pipeline consisted of 6 steps:
 
 **1.converte the images to grayscale**
 
-**2.use Gaussian filter to Smooth images **
+**2.use Gaussian filter to Smooth images**
 
 **3.detect edges by canny**
 
@@ -27,4 +27,4 @@ my pipeline have constant parameters for image process, One potential shortcomin
 
 ###3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to we should have variable parameters for the pipeline which depends on the images proccessed.that is to say we should have a algorithm which can choose the right parameters.
+A possible improvement would be to we should have variable parameters for the pipeline which depends on the images proccessed.that is to say we should have a algorithm which can choose the right parameters.But I have no idea on how to do it.
